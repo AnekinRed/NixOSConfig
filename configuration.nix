@@ -152,6 +152,7 @@ specialArgs = { inherit inputs; };
     kittysay
     kitty-img
     byobu
+    fastfetch
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
