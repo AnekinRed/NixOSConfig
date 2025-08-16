@@ -14,57 +14,31 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
-  fileSystems."/iso" =
-    { device = "/dev/root";
-      fsType = "iso9660";
-    };
-
-  fileSystems."/nix/.rw-store" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
-  fileSystems."/nix/store" =
-    { device = "overlay";
-      fsType = "overlay";
-    };
-
-  fileSystems."/mnt" =
     { device = "/dev/disk/by-uuid/931f020e-88a4-419d-817e-ef6dfa9658c4";
       fsType = "btrfs";
     };
 
-  fileSystems."/mnt" =
-    { device = "/dev/disk/by-uuid/931f020e-88a4-419d-817e-ef6dfa9658c4";
-      fsType = "btrfs";
-    };
-
-  fileSystems."/mnt/boot" =
+  fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/7CEE-9539";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/mnt/boot" =
-    { device = "/mnt/boot";
-      fsType = "none";
-      options = [ "bind" ];
-    };
 
   swapDevices = [ ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  # Enables DHCP on each ethernet and wireless interface. In
+  # case of scripted networking (the default) this is the
+  # recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to
+  # use it in conjunction with explicit per-interface
+  # declarations with
+  # `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault
+  # true; networking.interfaces.wlp0s20f3.useDHCP =
+  # lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-}
+hardware.cpu.intel.updateMicrocode = lib.mkDefault
+config.hardware.enableRedistributableFirmware; }
