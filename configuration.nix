@@ -13,7 +13,6 @@ programs.hyprland = {
     xwayland.enable = true;
   };
   # ...
-specialArgs = { inherit inputs; };
 
   hardware.graphics = {
     enable = true;
@@ -136,6 +135,7 @@ specialArgs = { inherit inputs; };
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    neovim
     git
     goofcord
     htop-vim
