@@ -163,7 +163,6 @@ programs.hyprland = {
     vimPlugins.LazyVim
     vimPlugins.nvim-treesitter
     pavucontrol
-    zen
     waybar
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
