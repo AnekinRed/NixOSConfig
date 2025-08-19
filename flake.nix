@@ -1,14 +1,24 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+      zen-browser = {
+    url = "github:0xc000022070/zen-browser-flake";
+    # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+    # to have it up-to-date or simply don't specify the nixpkgs input
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs: {
+  outputs = {nixpkgs, stylix, ... }: {
 
-    nixosConfigurations.AnekinRedsLaptop = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.AnekinRedsLaptop = nixpkgs.lib.nixosSystem {
       modules = [
-        { nix.settings.experimental-features = ["nix-command" "flakes"]; }
+      stylix.nixosModules.stylix
         ./configuration.nix
       ];
     };

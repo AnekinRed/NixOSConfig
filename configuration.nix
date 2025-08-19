@@ -153,6 +153,13 @@ programs.hyprland = {
     kitty-img
     byobu
     fastfetch
+    testdisk-qt
+    lazygit
+    libgcc
+    curlFull
+    fzf
+    ripgrep-all
+    fd
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
