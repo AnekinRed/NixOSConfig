@@ -160,6 +160,11 @@ programs.hyprland = {
     fzf
     ripgrep-all
     fd
+    vimPlugins.LazyVim
+    vimPlugins.nvim-treesitter
+    pavucontrol
+    zen
+    waybar
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
