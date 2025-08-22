@@ -165,7 +165,7 @@ programs.hyprland = {
     pavucontrol
     waybar
     vivaldi
-    vivaldi-ffmpef-codecs
+    vivaldi-ffmpeg-codecs
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
