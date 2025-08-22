@@ -164,6 +164,8 @@ programs.hyprland = {
     vimPlugins.nvim-treesitter
     pavucontrol
     waybar
+    vivaldi
+    vivaldi-ffmpef-codecs
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
