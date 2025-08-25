@@ -137,7 +137,7 @@ programs.hyprland = {
   environment.systemPackages = with pkgs; [
     neovim
     git
-    goofcord
+    vesktop
     htop-vim
     libreoffice-qt6
     obsidian
