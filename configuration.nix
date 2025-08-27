@@ -46,7 +46,7 @@ programs.hyprland = {
                 
 	};
 
-
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -96,7 +96,6 @@ programs.hyprland = {
   # Enable the X11 windowing system.
   #  services.xserver.enable = true;
 
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];	
 
   #  Configure keymap in X11
    services.xserver.xkb.layout = "no";
