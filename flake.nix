@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = {nixpkgs, stylix, ... }: {
+  outputs = {nixpkgs, stylix, zen-browser, ... }: {
 
     nixosConfigurations.AnekinRedsLaptop = nixpkgs.lib.nixosSystem {
       modules = [
