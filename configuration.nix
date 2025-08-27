@@ -50,7 +50,6 @@ programs.hyprland = {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
     ];
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
