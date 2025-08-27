@@ -50,6 +50,7 @@ programs.hyprland = {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
@@ -128,6 +129,13 @@ programs.hyprland = {
     ];
    };
 
+home-manager = {
+
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+	"anekinred" = import ./home.nix;
+	};
+};
   programs.firefox.enable = true;
   programs.steam.enable =  true;
   programs.fish.enable = true;
@@ -214,4 +222,3 @@ programs.hyprland = {
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-

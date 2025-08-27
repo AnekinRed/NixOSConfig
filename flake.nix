@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
       zen-browser = {
-    url = "github:0xc000022070/zen-browser-flake/beta";
+    url = "github:0xc000022070/zen-browser-flake";
     # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
     # to have it up-to-date or simply don't specify the nixpkgs input
     inputs.nixpkgs.follows = "nixpkgs";
@@ -12,13 +12,20 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager ={
+	url = "github:nix-community/home-manager";
+	inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {nixpkgs, stylix, zen-browser, ... }: {
+  outputs = {nixpkgs, stylix, zen-browser, ... }@inputs: {
 
     nixosConfigurations.AnekinRedsLaptop = nixpkgs.lib.nixosSystem {
+      extraSpecialArgs = {inherit inputs; };
       modules = [
       stylix.nixosModules.stylix
+      zen-browser.nixosModules.zen-browser
+      inputs.home-manager.nixosModules.default
         ./configuration.nix
       ];
     };
