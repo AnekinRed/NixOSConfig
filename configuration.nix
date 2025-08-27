@@ -46,7 +46,6 @@ programs.hyprland = {
                 
 	};
 
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -126,6 +125,8 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
       tree
     ];
    };
+
+nix.settings.experimental-features = ["nix-command" "flakes" ];
 
   programs.firefox.enable = true;
   programs.steam.enable =  true;
