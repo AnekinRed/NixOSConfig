@@ -129,13 +129,6 @@ programs.hyprland = {
     ];
    };
 
-home-manager = {
-
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-	"anekinred" = import ./home.nix;
-	};
-};
   programs.firefox.enable = true;
   programs.steam.enable =  true;
   programs.fish.enable = true;
