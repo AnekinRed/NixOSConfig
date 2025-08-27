@@ -19,7 +19,6 @@
     nixosConfigurations.AnekinRedsLaptop = nixpkgs.lib.nixosSystem {
       modules = [
       stylix.nixosModules.stylix
-      zen-browser.nixosModules.zen-browser
         ./configuration.nix
       ];
     };
