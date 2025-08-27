@@ -166,7 +166,6 @@ nix.settings.experimental-features = ["nix-command" "flakes" ];
     waybar
     thunderbird-latest-unwrapped
     vlc
-    zen
     kdePackages.dolphin
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
