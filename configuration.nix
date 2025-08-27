@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
 services.displayManager.sddm.wayland.enable = true;
@@ -49,6 +49,7 @@ programs.hyprland = {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
@@ -127,6 +128,13 @@ programs.hyprland = {
    };
 
 nix.settings.experimental-features = ["nix-command" "flakes" ];
+
+  home-manager = {
+  	extraSpecialArgs = { inherit inputs; };
+	users = {
+	  "anekinred" = import ./home.nix;
+	  };
+  };
 
   programs.firefox.enable = true;
   programs.steam.enable =  true;
