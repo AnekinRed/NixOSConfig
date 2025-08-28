@@ -13,19 +13,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  # home-manager = {
-   #	url = "github:nix-community/home-manager";
-#	inputs.nixpkgs.follows = "nixpkgs";
-#	};
+   home-manager = {
+   	url = "github:nix-community/home-manager";
+	inputs.nixpkgs.follows = "nixpkgs";
+	};
 
   outputs = {nixpkgs, stylix, zen-browser, ... }@inputs: {
 
     nixosConfigurations.AnekinRedsLaptop = nixpkgs.lib.nixosSystem {
       extraSpecialArgs = {inherit inputs;};
+
       modules = [
       stylix.nixosModules.stylix
         ./configuration.nix
-#	inputs.home-manager.nixosModules.default
+inputs.home-manager.nixosModules.default
       ];
     };
 
