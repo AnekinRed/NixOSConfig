@@ -20,7 +20,6 @@
   outputs = {nixpkgs, stylix, ... }@inputs: {
 
     nixosConfigurations.AnekinRedsLaptop = nixpkgs.lib.nixosSystem {
-      extraSpecialArgs = {inherit inputs;};
 
       modules = [
       stylix.nixosModules.stylix
