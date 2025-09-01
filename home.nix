@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -15,15 +15,6 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
-inputs = {
-  zen-browser = {
-    url = "github:0xc000022070/zen-browser-flake";
-    # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-    # to have it up-to-date or simply don't specify the nixpkgs input
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  # ...
-};
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
