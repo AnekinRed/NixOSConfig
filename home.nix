@@ -23,9 +23,9 @@
     # # "Hello, world!" when run.
     # pkgs.hello
 	
-inputs.zen-browser.packages.x86_64-linux}.default # beta
-inputs.zen-browser.packages.x86_64-linux}.beta
-inputs.zen-browser.packages.x86_64-linux}.twilight
+inputs.zen-browser.packages.x86_64-linux.default # beta
+inputs.zen-browser.packages.x86_64-linux.beta
+inputs.zen-browser.packages.x86_64-linux.twilight
 # IMPORTANT: this package relies on the twilight release artifacts from the
 # official zen repo and those artifacts are always replaced, causing hash mismatch
 inputs.zen-browser.packages."${system}".twilight-official
