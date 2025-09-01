@@ -28,7 +28,7 @@ inputs.zen-browser.packages.x86_64-linux.beta
 inputs.zen-browser.packages.x86_64-linux.twilight
 # IMPORTANT: this package relies on the twilight release artifacts from the
 # official zen repo and those artifacts are always replaced, causing hash mismatch
-inputs.zen-browser.packages."${system}".twilight-official
+inputs.zen-browser.packages.x86_64-linux.twilight-official
 
 # you can even override the package policies
 inputs.zen-browser.packages.x86_64-linux.default.override {
