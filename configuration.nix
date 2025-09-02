@@ -130,7 +130,7 @@ programs.hyprland = {
 nix.settings.experimental-features = ["nix-command" "flakes" ];
 
   home-manager = {
-  	extraSpecialArgs = { inherit inputs; };
+  	SpecialArgs = { inherit inputs; };
 	users = {
 	  "anekinred" = import ./home.nix;
 	  };
