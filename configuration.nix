@@ -121,8 +121,8 @@ programs.hyprland = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
-    hashedPassword = "$y$j9T$wazE4Reg6Za8EalIiAlsT1$CxwmGLZtnfD3DMhAda9Z91O4UewzVHXi.NfdkIQzF01";
-    packages = with pkgs; [
+    initialHashedPassword = "$y$j9T$wazE4Reg6Za8EalIiAlsT1$CxwmGLZtnfD3DMhAda9Z91O4UewzVHXi.NfdkIQzF01";
+    packags = with pkgs; [
       tree
     ];
    };
