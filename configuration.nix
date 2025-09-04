@@ -129,12 +129,7 @@ programs.hyprland = {
 
 nix.settings.experimental-features = ["nix-command" "flakes" ];
 
-  home-manager = {
-  	specialArgs = { inherit inputs; };
-	users = {
-	  "anekinred" = import ./home.nix;
-	  };
-        };
+
 
   programs.firefox.enable = true;
   programs.steam.enable =  true;

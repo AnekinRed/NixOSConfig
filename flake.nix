@@ -31,7 +31,6 @@
       stylix.nixosModules.stylix
         ./configuration.nix
 inputs.home-manager.nixosModules.default
-{ home-manager.extraSpecialArgs = specialArgs; }
       ];
     };
 
