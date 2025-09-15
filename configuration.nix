@@ -2,13 +2,19 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-services.displayManager.sddm.wayland.enable = true;
-services.displayManager.sddm.enable = true;
-nixpkgs.config.allowUnfree = true;  
-programs.hyprland = {
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
+  nixpkgs.config.allowUnfree = true;
+  programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
@@ -18,7 +24,10 @@ programs.hyprland = {
     enable = true;
   };
 
-  services.xserver.videoDrivers = ["nvidia""modesetting"];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "modesetting"
+  ];
 
   hardware.nvidia = {
 
@@ -29,28 +38,23 @@ programs.hyprland = {
 
     open = true;
 
-    
-	# accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  hardware.nvidia.prime = {
+    sync.enable = true;
 
- 
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
 
-	hardware.nvidia.prime = {
-    		sync.enable = true;
+  };
 
-		intelBusId = "PCI:0:2:0";
-		nvidiaBusId = "PCI:1:0:0";
-                
-	};
-
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (
@@ -72,35 +76,32 @@ programs.hyprland = {
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.device = "nodev" ;
+  boot.loader.grub.device = "nodev";
 
-
- 
   networking.hostName = "AnekinRedsLaptop";
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-    
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+
   # Set your time zone.
-   time.timeZone = "Europe/Oslo";
+  time.timeZone = "Europe/Oslo";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.111111
-   i18n.defaultLocale = "en_GB.UTF-8";
-   console = {
-     font = "Lat2-Terminus16";
-     useXkbConfig = true; # use xkb.options in tty.
-   };
+  i18n.defaultLocale = "en_GB.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    useXkbConfig = true; # use xkb.options in tty.
+  };
 
   # Enable the X11 windowing system.
   #  services.xserver.enable = true;
 
-
   #  Configure keymap in X11
-   services.xserver.xkb.layout = "no";
-   services.xserver.xkb.variant = "nodeadkeys";
-   services.xserver.xkb.options = "eurosign:e, compose:menu, grp:win_alt_space_toggle";
+  services.xserver.xkb.layout = "no";
+  services.xserver.xkb.variant = "nodeadkeys";
+  services.xserver.xkb.options = "eurosign:e, compose:menu, grp:win_alt_space_toggle";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -108,16 +109,16 @@ programs.hyprland = {
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-   services.pipewire = {
+  services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
- 
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.anekinred = {
+  users.users.anekinred = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
@@ -125,14 +126,15 @@ programs.hyprland = {
     packages = with pkgs; [
       tree
     ];
-   };
+  };
 
-nix.settings.experimental-features = ["nix-command" "flakes" ];
-
-
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   programs.firefox.enable = true;
-  programs.steam.enable =  true;
+  programs.steam.enable = true;
   programs.fish.enable = true;
   programs.neovim.defaultEditor = true;
   # List packages installed in system profile.
@@ -170,6 +172,7 @@ nix.settings.experimental-features = ["nix-command" "flakes" ];
     thunderbird-latest-unwrapped
     vlc
     kdePackages.dolphin
+    nixfmt-rfc-style
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
