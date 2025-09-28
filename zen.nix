@@ -53,7 +53,7 @@
     in {
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
-      DisableAppUpdate = true;
+      DisableAppUpdate = false;
       DisableFeedbackCommands = true;
       DisableFirefoxStudies = true;
       DisablePocket = true; # save webs for later reading
@@ -72,9 +72,6 @@
         "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = "return-youtube-dislikes";
         "{74145f27-f039-47ce-a470-a662b129930a}" = "clearurls";
         "github-no-more@ihatereality.space" = "github-no-more";
-        "github-repository-size@pranavmangal" = "gh-repo-size";
-        "firefox-extension@steamdb.info" = "steam-database";
-        "@searchengineadremover" = "searchengineadremover";
         "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
         "uBlock0@raymondhill.net" = "ublock-origin";
       };
@@ -116,8 +113,8 @@
         "zen.workspaces.continue-where-left-off" = true;
         "zen.workspaces.natural-scroll" = true;
         "zen.view.compact.hide-tabbar" = true;
-        "zen.view.compact.hide-toolbar" = true;
-        "zen.view.compact.animate-sidebar" = false;
+        "zen.view.compact.hide-toolbar" = false;
+        "zen.view.compact.animate-sidebar" = true;
       };
 
       bookmarks = {
@@ -200,7 +197,7 @@
 
       search = {
         force = true;
-        default = "google";
+        default = "startpage";
         engines = let
           nixSnowflakeIcon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         in {

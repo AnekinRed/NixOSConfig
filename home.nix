@@ -10,7 +10,6 @@
   # manage.
   home.username = "anekinred";
   home.homeDirectory = "/home/anekinred";
-  
   imports = 
   [
   ./zen.nix
