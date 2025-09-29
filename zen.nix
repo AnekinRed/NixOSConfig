@@ -196,7 +196,7 @@
       };
 
       search = {
-        force = true;
+        force = false;
         default = "startpage";
         engines = let
           nixSnowflakeIcon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
