@@ -173,6 +173,7 @@
     vlc
     kdePackages.dolphin
     nixfmt-rfc-style
+    hyprpicker
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
