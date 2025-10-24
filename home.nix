@@ -13,7 +13,6 @@
   imports = 
   [
   ./zen.nix
-  inputs.LazyVim.homeManagerModules.default
   ];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -24,10 +23,7 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
-  programs.lazyvim = {
-      enable = true;
-    };
-  # The home.packages option allows you to install Nix packages into your
+   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
