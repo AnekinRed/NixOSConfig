@@ -25,6 +25,10 @@
   home.stateVersion = "25.05"; # Please read the comment before changing.
   programs.lazyvim = {
     enable = true;
+    plugins = [{
+       plugin = pkgs.vimPlugins.rust-analyzer;
+       config = builtins.readFile ./nvim-plugins/rust-analyzer.lua;
+    }];
      extras = {
       coding = {
         yanky.enable = true;
