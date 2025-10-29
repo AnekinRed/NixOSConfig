@@ -1,4 +1,8 @@
-vim.lsp.config['rust-analyzer'] = {
+return {
+    {
+        "anekin/rust-analyzer",
+        init = function()
+            vim.lsp.config['rust-analyzer'] = {
   cmd = { 'rust-analyzer' },
   -- Filetypes to automatically attach to.
   filetypes = { 'rs' },
@@ -6,6 +10,10 @@ vim.lsp.config['rust-analyzer'] = {
   -- Files that share a root directory will reuse the LSP server connection.
   -- Nested lists indicate equal priority, see |vim.lsp.Config|.
   root_markers = { 'Cargo.toml' }
-  }
 }
 vim.lsp.enable('rust-analyzer')
+        end,
+    },
+}
+
+
