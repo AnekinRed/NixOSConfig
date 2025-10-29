@@ -26,16 +26,21 @@
       url = "github:matadaniel/LazyVim-module";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
       nixpkgs,
       stylix,
       home-manager,
+      fenix,
       ...
     }@inputs:
     {
-
+      packages.x86_64-linux.default = fenix.packages.x86_64-linux.stable.toolchain;
       nixosConfigurations.AnekinRedsLaptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
@@ -46,9 +51,10 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.anekinred = ./home.nix;
-	    home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
-        ];
+          {nixpkgs.overlays = [ fenix.overlays.default ];}
+          ];
       };
 
     };

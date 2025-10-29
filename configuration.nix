@@ -174,6 +174,14 @@
     kdePackages.dolphin
     nixfmt-rfc-style
     hyprpicker
+    (fenix.stable.withComponents [
+        "cargo"
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+	"rust-analyzer"
+            ])
   ];
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;

@@ -38,6 +38,11 @@
 
       lang = {
         nix.enable = true;
+	markdown.enable = true;
+	svelte.enable = true;
+	typescript.enable = true;
+	tailwind.enable = true;
+	json.enable = true;
       };
 
       test = {
