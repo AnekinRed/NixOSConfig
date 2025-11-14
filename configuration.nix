@@ -28,6 +28,8 @@
     "nvidia"
     "modesetting"
   ];
+  
+  boot.initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_drm" ];
 
   hardware.nvidia = {
 
@@ -169,6 +171,13 @@
     vimPlugins.nvim-treesitter
     pavucontrol
     waybar
+    vulkan-tools
+    vulkan-loader
+    vulkan-headers
+    vulkan-tools-lunarg
+    vulkan-validation-layers
+    vulkan-utility-libraries
+    vulkan-cts
     thunderbird-latest-unwrapped
     vlc
     kdePackages.dolphin
@@ -182,7 +191,7 @@
         "rustfmt"
 	"rust-analyzer"
             ])
-  ];
+  ];  
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
   fonts.fontconfig.useEmbeddedBitmaps = true;
   # Some programs need SUID wrappers, can be configured further or are
