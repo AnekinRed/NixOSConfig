@@ -22,41 +22,7 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
-  programs.lazyvim = {
-    enable = true;
-    pluginsFile."rust-analyzer.lua".source= ./nvim-plugins/rust-analyzer.lua;
-     extras = {
-      coding = {
-        yanky.enable = true;
-      };
-
-      editor = {
-        dial.enable = true;
-
-        inc-rename.enable = true;
-      };
-
-      lang = {
-        nix.enable = true;
-	markdown.enable = true;
-	svelte.enable = true;
-	typescript.enable = true;
-	tailwind.enable = true;
-	json.enable = true;
-      };
-
-      test = {
-        core.enable = true;
-      };
-
-      util = {
-        dot.enable = true;
-
-        mini-hipatterns.enable = true;
-      };
-    };
-  };
-   # The home.packages option allows you to install Nix packages into your
+  # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
