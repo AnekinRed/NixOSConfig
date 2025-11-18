@@ -124,7 +124,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
-    initialHashedPassword = "$y$j9T$wazE4Reg6Za8EalIiAlsT1$CxwmGLZtnfD3DMhAda9Z91O4UewzVHXi.NfdkIQzF01";
+    hashedPassword = "$y$j9T$wazE4Reg6Za8EalIiAlsT1$CxwmGLZtnfD3DMhAda9Z91O4UewzVHXi.NfdkIQzF01";
     packages = with pkgs; [
       tree
     ];
@@ -135,6 +135,7 @@
     "flakes"
   ];
 
+# Apps Packages pkgs Options
   programs.firefox.enable = true;
   programs.steam.enable = true;
   programs.fish.enable = true;
